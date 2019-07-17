@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  BrowserRouter,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -39,8 +45,10 @@ class App extends React.Component {
     };
     return (
       <div className="App">
+        <BrowserRouter>
         <MyNavbar authed={authed}/>
         {loadComponent()}
+        </BrowserRouter>    
       </div>
     );
   }
