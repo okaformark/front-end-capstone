@@ -14,6 +14,7 @@ import Home from '../components/Home/Home';
 import Donate from '../components/Donate/Donate';
 import MyDonations from '../components/MyDonations/MyDonations';
 import EditDonation from '../components/EditDonation/EditDonation';
+import SelectedDonation from '../components/SelectedDonation/SelectedDonation';
 import './App.scss';
 import fbConnection from '../helpers/data/connection';
 
@@ -71,7 +72,7 @@ class App extends React.Component {
                   <PrivateRoute path='/donate' component={Donate} authed={authed} />
                   <PrivateRoute path='/my-donations' component={MyDonations} authed={authed} />
                   <PrivateRoute path='/edit/:id' component={EditDonation} authed={authed} />
-                  {/* <PrivateRoute path='/scat/:id' component={SelectedDonation} authed={authed} /> */}
+                  <PrivateRoute path='/donation/:id' component={SelectedDonation} authed={authed} />
                   <Redirect from= "*" to="/auth" />
                 </Switch>
               </div>

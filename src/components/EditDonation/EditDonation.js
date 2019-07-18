@@ -4,7 +4,7 @@ class EditDonation extends React.Component {
   render() {
     return (
       <div className="EditDonation">
-        <h1>EditDonation</h1>
+        <h1>Edit Donation</h1>
       </div>
     );
   }
