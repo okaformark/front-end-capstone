@@ -28,7 +28,6 @@ const getMyDonations = uid => new Promise((resolve, reject) => {
           myDonations.push(res.data[fbKey]);
         });
       }
-      console.error(myDonations);
       resolve(myDonations);
     })
     .catch(err => reject(err));
