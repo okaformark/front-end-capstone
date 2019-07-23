@@ -24,7 +24,7 @@ class Donations extends React.Component {
     // eslint-disable-next-line
     const image = require(`${donation.foodImageUrl}`);
     return (
-      <div className="Donation">
+      <div className="Donation col">
         <Card>
           <CardBody>
             <CardTitle>{donation.eventType}</CardTitle>
