@@ -30,10 +30,10 @@ class Home extends React.Component {
     ));
     const profileLink = '/my-profile/789';
     return (
-      <div className="Home">
+      <div className="Home col">
         <h1>HOME</h1>
-        <div className="">
         <h1>All Donations</h1>
+        <div className="d-flex">
           {makeDonationsCard}
         </div>
         <Link className="btn btn-info" to={profileLink}>Profile</Link>
