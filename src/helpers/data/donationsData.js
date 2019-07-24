@@ -36,10 +36,13 @@ const getMyDonations = uid => new Promise((resolve, reject) => {
 const postDonation = newDonation => axios.post(`${baseUrl}/donations.json`, newDonation);
 const putDonation = (saveDonation, donationId) => axios.put(`${baseUrl}/donations/${donationId}.json`, saveDonation);
 const getSelectedDonation = donationsId => axios.get(`${baseUrl}/donations/${donationsId}.json`);
+const deleteDonations = (donationId, uid) => axios.delete(`${baseUrl}/donations/${donationId}.json`, uid);
+
 export default {
   getAllDonations,
   getMyDonations,
   postDonation,
   putDonation,
   getSelectedDonation,
+  deleteDonations,
 };

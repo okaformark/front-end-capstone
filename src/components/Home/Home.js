@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import 'firebase/auth';
 import donationsData from '../../helpers/data/donationsData';
 import Donations from '../Donations/Donations';
-// import MyDonations from '../MyDonations/MyDonations';
-// import MyDonations from '../MyDonations/MyDonations';
+import './Home.scss';
 
 class Home extends React.Component {
   state = {
@@ -19,6 +18,12 @@ class Home extends React.Component {
       .catch(err => console.error('could not get donations', err));
   }
 
+  deleteDonations = (donationsId) => {
+    donationsData.deleteDonations(donationsId)
+      .then(() => this.getDonations())
+      .catch(err => console.error('could not delete donations', err));
+  }
+
   componentDidMount() {
     this.getDonations();
   }
@@ -26,7 +31,11 @@ class Home extends React.Component {
   render() {
     const { donations } = this.state;
     const makeDonationsCard = donations.map(donation => (
-      <Donations donation={donation} key={donation.id}/>
+      <Donations
+        donation={donation}
+        key={donation.id}
+        deleteDonations={this.deleteDonations}
+        />
     ));
     const profileLink = '/my-profile/789';
     return (
