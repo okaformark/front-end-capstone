@@ -29,7 +29,7 @@ class MyDonations extends React.Component {
     return (
       <div className="MyDonations">
         <h1>My Donations</h1>
-        <div className="d-flex col">
+        <div className="row">
           {makeMyDonationsCard}
         </div>
       </div>
