@@ -3,10 +3,10 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
-import FileUploader from 'react-firebase-file-uploader';
+// import FileUploader from 'react-firebase-file-uploader';
 import {
-  Col,
-  Row,
+  FormFeedback,
+  FormText,
   Button,
   Form,
   FormGroup,
@@ -14,6 +14,7 @@ import {
   Input,
 } from 'reactstrap';
 import fbConnection from '../../helpers/data/connection';
+import donationsData from '../../helpers/data/donationsData';
 
 fbConnection();
 
@@ -47,47 +48,89 @@ class Donate extends React.Component {
       }));
   }
 
+  formFieldStringState = (name, e) => {
+    const tempDonation = { ...this.state.newDonation };
+    tempDonation[name] = e.target.value;
+    this.setState({ newDonation: tempDonation });
+  }
+
+
+  handleProgress = progress => this.setState({ progress })
+
+  foodDescriptionChange = e => this.formFieldStringState('foodDescription', e);
+
+  pickUpLocationChange = e => this.formFieldStringState('pickUpLocation', e);
+
+  eventTypeChange = e => this.formFieldStringState('eventType', e);
+
+  dateChange = e => this.formFieldStringState('date', e);
+
+  timeChange = e => this.formFieldStringState('time', e);
+
+  foodImageUrlChange = e => this.formFieldStringState('foodImageUrl', e);
+
+  formSubmit = (e) => {
+    e.preventDefault();
+    const saveDonation = { ...this.state.newDonation };
+    saveDonation.uid = firebase.auth().currentUser.uid;
+    donationsData.postDonation(saveDonation)
+      .then(() => this.props.history.push('/home'))
+      .catch(err => console.error('could not create doanation', err));
+  }
+
   render() {
-    console.error(this.state);
+    const { newDonation } = this.state;
     return (
       <div className="Donate col-4">
         <h1>Donate</h1>
-        <Form>
+        <Form onSubmit={this.formSubmit}>
           <FormGroup>
             <Label for="foodDescription">Food Description</Label>
-            <Input type="textarea" name="text" id="foodDescription" placeholder=" Grilled Chicken, Subs, Sammies, Mashed potatoes, etc" />
+            <Input
+              required type="textarea"
+              name="foodDescription"
+              id="foodDescription"
+              aria-multiline='true'
+              placeholder=" Grilled Chicken, Subs, Sammies, Mashed potatoes, etc"
+              value={newDonation.foodDescription}
+              onChange={this.foodDescriptionChange}
+              />
           </FormGroup>
           <FormGroup>
-            <Label for="exampleAddress">Address</Label>
-            <Input type="text" name="address" id="exampleAddress" placeholder="1234 Main St"/>
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleAddress2">Address 2</Label>
-            <Input type="text" name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor"/>
-          </FormGroup>
-          <Row form>
-            <Col md={6}>
-              <FormGroup>
-                <Label for="exampleCity">City</Label>
-                <Input type="text" name="city" id="exampleCity"/>
-              </FormGroup>
-            </Col>
-            <Col md={4}>
-              <FormGroup>
-                <Label for="exampleState">State</Label>
-                <Input type="text" name="state" id="exampleState"/>
-              </FormGroup>
-            </Col>
-            <Col md={2}>
-              <FormGroup>
-                <Label for="exampleZip">Zip</Label>
-                <Input type="text" name="zip" id="exampleZip"/>
-              </FormGroup>
-            </Col>
-          </Row>
+          <Label for="exampleEmail">Enter pickUp Location</Label>
+          <Input
+            type="text"
+            name="address"
+            id="exampleAddress"
+            placeholder="No   Street Name  City  State ZIP "
+            value={newDonation.pickUpLocation}
+            onChange={this.pickUpLocationChange}
+           />
+          <FormFeedback>You will not be able to see this</FormFeedback>
+          <FormText>Your address is safe with us.</FormText>
+        </FormGroup>
           <FormGroup>
             <Label for="eventType">Event Type</Label>
-              <Input type="text" name="event" id="eventType" placeholder="Type of Event" />
+              <Input
+                type="text"
+                name="event"
+                id="eventType"
+                placeholder="Type of Event"
+                value={newDonation.eventType}
+                onChange={this.eventTypeChange}
+                />
+        </FormGroup>
+        <FormGroup>
+          <Label for="image">UpLoad Image</Label>
+          <Input
+            type="text"
+            className="foodImage"
+            width="100%"
+            src={newDonation.foodImageUrl}
+            alt=""
+            placeholder="Type of Event"
+            onChange={this.foodImageUrlChange}
+            />
         </FormGroup>
           <FormGroup>
             <Label for="exampleDate">Date</Label>
@@ -95,7 +138,9 @@ class Donate extends React.Component {
               type="date"
               name="date"
               id="exampleDate"
-              placeholder="date placeholder"
+              placeholder="01/01/2000"
+              value={newDonation.date}
+              onChange={this.dateChange}
             />
           </FormGroup>
           <FormGroup>
@@ -105,22 +150,25 @@ class Donate extends React.Component {
               name="time"
               id="exampleTime"
               placeholder="time placeholder"
-            />
+              value={newDonation.time}
+              onChange={this.timeChange}
+              />
           </FormGroup>
+          <Button className="btn btn-outline-info">Donate</Button>
         </Form>
-        <label className="">Progress:</label>
+        {/* <label className="">Progress:</label>
         <p>{this.state.progress}</p>
-        <label className="">Image: </label>
-        <img src={this.state.image} alt="" />
+        <label className="">Image:" "</label>
+        {this.state.image && <img src={this.state.image} alt="" />}
         <FileUploader
           accept="image/*"
           name='image'
           storageRef={firebase.storage().ref('foodImages')}
           onUpLoadStart={this.handleUpLoadStart}
           onUpLoadSuccess={this.handleUpLoadSuccess}
+          onProgress={this.handleProgress}
         />
-        <br/>
-        <Button className="btn btn-outline-success">Donate</Button>
+        <br/> */}
       </div>
     );
   }

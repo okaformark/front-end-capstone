@@ -21,16 +21,15 @@ class Donations extends React.Component {
     const { donation } = this.props;
     const editLink = `/edit/${donation.id}`;
     const selectedLink = `/donation/${donation.id}`;
-    // eslint-disable-next-line
-    const image = require(`${donation.foodImageUrl}`);
+
     return (
-      <div className="Donation col">
+      <div className="Donation col-3">
         <Card>
           <CardBody>
             <CardTitle>{donation.eventType}</CardTitle>
             <CardSubtitle>{donation.pickUpLocation}</CardSubtitle>
           </CardBody>
-          <img className="foodImage"width="100%" src={image} alt="" />
+          <img className="foodImage"width="100%" src={donation.foodImageUrl} alt="" />
           <CardBody>
             <CardText>{donation.foodDescription}</CardText>
             <Link className="btn btn-info" to={editLink} >Edit</Link>

@@ -33,4 +33,6 @@ const getMyDonations = uid => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
-export default { getAllDonations, getMyDonations };
+const postDonation = newDonation => axios.post(`${baseUrl}/donations.json`, newDonation);
+
+export default { getAllDonations, getMyDonations, postDonation };

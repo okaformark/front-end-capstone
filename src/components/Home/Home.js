@@ -33,7 +33,7 @@ class Home extends React.Component {
       <div className="Home col">
         <h1>HOME</h1>
         <h1>All Donations</h1>
-        <div className="d-flex">
+        <div className="row">
           {makeDonationsCard}
         </div>
         <Link className="btn btn-info" to={profileLink}>Profile</Link>
