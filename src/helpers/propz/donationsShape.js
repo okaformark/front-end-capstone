@@ -9,7 +9,7 @@ const donationsShape = PropTypes.shape({
   date: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   foodImageUrl: PropTypes.string.isRequired,
-  recipientId: PropTypes.string.isRequired,
+  recipientId: PropTypes.string,
   isClaimed: PropTypes.bool.isRequired,
 });
 

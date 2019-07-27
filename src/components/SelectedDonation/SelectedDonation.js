@@ -6,14 +6,18 @@ import donationsData from '../../helpers/data/donationsData';
 
 class SelectedDonation extends React.Component {
   state = {
-    donations: {},
+    donations: null,
   }
 
-  componentDidMount() {
+  getSelectedDonation = () => {
     const donationsId = this.props.match.params.id;
     donationsData.getSelectedDonation(donationsId)
       .then(donationsPromise => this.setState({ donations: donationsPromise.data }))
       .catch(err => console.error('could not get selected donation', err));
+  }
+
+  componentDidMount() {
+    this.getSelectedDonation();
   }
 
   deleteDonation = () => {
@@ -26,11 +30,20 @@ class SelectedDonation extends React.Component {
 
   render() {
     const { donations } = this.state;
+    if (donations === null) {
+      return null;
+    }
+    const editLink = `/edit/${this.props.match.params.id}`;
     return (
-      <div className="SelectedDonation">
+       <div className="SelectedDonation col">
         <h1>Selected Donation</h1>
-        <Donations donations={donations} />
-      </div>
+        <Donations
+          donation={donations}
+          key={donations.id}
+          deleteDonations={this.deleteDonation}
+          to={editLink}
+          />
+        </div>
     );
   }
 }

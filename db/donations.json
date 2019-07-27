@@ -10,7 +10,7 @@
       "time": "1:00pm",
       "foodImageUrl": "https://eatforum.org/content/uploads/2018/05/EAT_pasta_tomato_basil_2018_1200x675-900x675.jpg",
       "recipientUid": "",
-      "isClaimed": "false"
+      "isClaimed": false
     },
     "donation2": {
       "uid": "12345",
@@ -22,7 +22,7 @@
       "time": "4:00pm",
       "foodImageUrl": "https://i0.wp.com/globaltechgadgets.com/wp-content/uploads/2019/05/Now-You-Can-Order-Food-Directly-From-Google-Search-Results.png?fit=950%2C650&ssl=1",
       "recipientId": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
-      "isClaimed": "true"
+      "isClaimed":true
     },
     "donation3": {
       "uid": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
@@ -34,7 +34,7 @@
       "time": "12:00pm",
       "foodImageUrl": "https://static.businessinsider.com/image/5432ecc8ecad046666d2a561-750.jpg",
       "recipientId": "45678",
-      "isClaimed": "true"
+      "isClaimed": true
     },
     "donation4": {
       "uid": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
@@ -46,7 +46,7 @@
       "time": "7:00pm",
       "foodImageUrl": "https://cdn.vox-cdn.com/thumbor/TbVM3yu4EpicfZj4BScPrDcYfns=/0x0:689x535/1200x900/filters:focal(290x213:400x323)/cdn.vox-cdn.com/uploads/chorus_image/image/60176283/12540800_479151908938901_5258071742037933855_n.0.1529954333.jpg",
       "recipientId": "23456",
-      "isClaimed": "true"
+      "isClaimed": true
     },
     "donation5": {
       "uid": "12345",
@@ -58,7 +58,7 @@
       "time": "6:30pm",
       "foodImageUrl": "http://static1.squarespace.com/static/5a45133832601e14c4a7d06e/5a4e9921005559236df8e2b8/5a4e9929005559236df8f0f9/1515100457734/photo.jpg?format=original",
       "recipientId": "",
-      "isClaimed": "false"
+      "isClaimed": false
     },
     "donation6": {
       "uid": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
@@ -70,7 +70,7 @@
       "time": "11:00am",
       "foodImageUrl": "https://o.aolcdn.com/images/dims3/GLOB/crop/1409x704+0+794/resize/630x315!/format/jpg/quality/85/http%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2F53030bd59e29d5824f09e988fa737453%2F204111097%2F525981134.jpg",
       "recipientId": "",
-      "isClaimed": "false"
+      "isClaimed": false
     }
   }
 }

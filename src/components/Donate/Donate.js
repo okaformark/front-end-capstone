@@ -125,11 +125,11 @@ class Donate extends React.Component {
           <Label for="image">UpLoad Image</Label>
           <Input
             type="text"
-            className="foodImage"
+            className="foodImageSrc"
             width="100%"
             src={newDonation.foodImageUrl}
+            placeholder="upload pictures"
             alt=""
-            placeholder="Type of Event"
             onChange={this.foodImageUrlChange}
             />
         </FormGroup>

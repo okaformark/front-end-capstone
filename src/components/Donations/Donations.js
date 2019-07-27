@@ -16,7 +16,7 @@ import './Donations.scss';
 
 class Donations extends React.Component {
   static propTypes = {
-    donation: PropTypes.arrayOf(donationsShape.donationsShape),
+    donation: donationsShape.donationsShape,
     deleteDonations: PropTypes.func.isRequired,
   }
 
@@ -26,11 +26,11 @@ class Donations extends React.Component {
     deleteDonations(donation.id);
   }
 
+
   render() {
     const { donation } = this.props;
     const editLink = `/edit/${donation.id}`;
     const selectedLink = `/donation/${donation.id}`;
-
     return (
       <div className="Donation col-3">
         <div className="card">
@@ -45,6 +45,7 @@ class Donations extends React.Component {
             <button className="btn btn-danger deleteBtn" onClick={this.deleteMe}>X</button>
             <Link to={editLink} ><button className="btn btn-info button"><span>Edit</span></button></Link>
             <Link to={selectedLink} ><button className="btn btn-info button"><span>View</span></button></Link>
+            <button className="btn btn-info button claimBtn"><span>Claim</span></button>
           </CardBody>
         </Card>
         </div>

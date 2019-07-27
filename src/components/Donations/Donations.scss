@@ -1,6 +1,9 @@
 .Donations{
   display: block;
 }
+.col-3{
+  padding: 10px;
+}
 .card{
   border: 10px double black;
   position: relative;
@@ -14,7 +17,7 @@
 .foodImage{
   float: left;
   width: 100%;
-  height: auto;
+  height: 180px;
   margin-right: 1rem;
 }
 img{
@@ -30,7 +33,7 @@ img{
   text-align: center;
   font-size: 14px;
   padding: 2px;
-  width: 70px;
+  width: 80px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 2px;
