@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import { Link } from 'react-router-dom';
 import {
   Card,
@@ -26,6 +28,22 @@ class Donations extends React.Component {
     deleteDonations(donation.id);
   }
 
+  claimButton = () => {
+    const { donation } = this.props;
+    if (donation.isClaimed) {
+      return null;
+    }
+    return <button className="btn btn-info button claimBtn"><span>Claim</span></button>;
+  };
+
+  deleteButton = () => {
+    const { donation } = this.props;
+    const { uid } = firebase.auth().currentUser;
+    if (donation.uid !== uid) {
+      return null;
+    }
+    return <button className="btn btn-danger deleteBtn" onClick={this.deleteMe}>X</button>;
+  }
 
   render() {
     const { donation } = this.props;
@@ -42,10 +60,10 @@ class Donations extends React.Component {
           <img className="foodImage" src={donation.foodImageUrl} alt="" />
           <CardBody>
             <CardText>{donation.foodDescription}</CardText>
-            <button className="btn btn-danger deleteBtn" onClick={this.deleteMe}>X</button>
+            {this.deleteButton()}
             <Link to={editLink} ><button className="btn btn-info button"><span>Edit</span></button></Link>
             <Link to={selectedLink} ><button className="btn btn-info button"><span>View</span></button></Link>
-            <button className="btn btn-info button claimBtn"><span>Claim</span></button>
+            {this.claimButton()}
           </CardBody>
         </Card>
         </div>
