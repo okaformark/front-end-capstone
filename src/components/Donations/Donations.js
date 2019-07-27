@@ -9,33 +9,46 @@ import {
   CardSubtitle,
 }
   from 'reactstrap';
+// import donationsData from '../../helpers/data/donationsData';
 import donationsShape from '../../helpers/propz/donationsShape';
+import './Donations.scss';
 
 
 class Donations extends React.Component {
   static propTypes = {
-    donation: PropTypes.arrayOf(donationsShape.donationsShape),
+    donation: donationsShape.donationsShape,
+    deleteDonations: PropTypes.func.isRequired,
   }
+
+  deleteMe = (e) => {
+    e.preventDefault();
+    const { donation, deleteDonations } = this.props;
+    deleteDonations(donation.id);
+  }
+
 
   render() {
     const { donation } = this.props;
     const editLink = `/edit/${donation.id}`;
     const selectedLink = `/donation/${donation.id}`;
-
     return (
       <div className="Donation col-3">
+        <div className="card">
         <Card>
           <CardBody>
             <CardTitle>{donation.eventType}</CardTitle>
             <CardSubtitle>{donation.pickUpLocation}</CardSubtitle>
           </CardBody>
-          <img className="foodImage"width="100%" src={donation.foodImageUrl} alt="" />
+          <img className="foodImage" src={donation.foodImageUrl} alt="" />
           <CardBody>
             <CardText>{donation.foodDescription}</CardText>
-            <Link className="btn btn-info" to={editLink} >Edit</Link>
-            <Link className="btn btn-info" to={selectedLink} >View</Link>
+            <button className="btn btn-danger deleteBtn" onClick={this.deleteMe}>X</button>
+            <Link to={editLink} ><button className="btn btn-info button"><span>Edit</span></button></Link>
+            <Link to={selectedLink} ><button className="btn btn-info button"><span>View</span></button></Link>
+            <button className="btn btn-info button claimBtn"><span>Claim</span></button>
           </CardBody>
         </Card>
+        </div>
       </div>
     );
   }

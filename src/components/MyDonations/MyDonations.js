@@ -16,18 +16,30 @@ class MyDonations extends React.Component {
       .catch(err => console.error('could not get my donations', err));
   }
 
+  deleteDonations = (donationsId) => {
+    donationsData.deleteDonations(donationsId)
+      .then(() => this.getMyDonation())
+      .catch(err => console.error('could not delete donations', err));
+  }
+
   componentDidMount() {
     this.getMyDonation();
   }
 
   render() {
     const { myDonations } = this.state;
+    // const { deleteDonations } = this.props;
+    // deleteDonations(myDonations.id);
     console.error(myDonations);
     const makeMyDonationsCard = myDonations.map(eachDonation => (
-      <Donations donation={eachDonation} key={eachDonation.id}/>
+      <Donations
+        donation={eachDonation}
+        key={eachDonation.id}
+        deleteDonations={this.deleteDonations}
+        />
     ));
     return (
-      <div className="MyDonations">
+      <div className="MyDonations col">
         <h1>My Donations</h1>
         <div className="row">
           {makeMyDonationsCard}
