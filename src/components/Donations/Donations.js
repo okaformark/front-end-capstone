@@ -67,6 +67,9 @@ class Donations extends React.Component {
     if (donation.uid !== uid) {
       return null;
     }
+    if (donation.uid === uid && donation.isClaimed === true) {
+      return null;
+    }
     return <button className="btn btn-info button"><span>Edit</span></button>;
   }
 
