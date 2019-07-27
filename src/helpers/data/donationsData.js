@@ -37,7 +37,7 @@ const postDonation = newDonation => axios.post(`${baseUrl}/donations.json`, newD
 const putDonation = (saveDonation, donationId) => axios.put(`${baseUrl}/donations/${donationId}.json`, saveDonation);
 const getSelectedDonation = donationsId => axios.get(`${baseUrl}/donations/${donationsId}.json`);
 const deleteDonations = donationId => axios.delete(`${baseUrl}/donations/${donationId}.json`);
-
+const updateClaims = (donation, claimsId) => axios.put(`${baseUrl}/donations/${claimsId}.json`, donation);
 export default {
   getAllDonations,
   getMyDonations,
@@ -45,4 +45,5 @@ export default {
   putDonation,
   getSelectedDonation,
   deleteDonations,
+  updateClaims,
 };
