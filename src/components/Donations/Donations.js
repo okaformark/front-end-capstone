@@ -31,7 +31,7 @@ class Donations extends React.Component {
   claimButton = () => {
     const { donation } = this.props;
     if (donation.isClaimed) {
-      return null;
+      return <button className="btn btn-sm btn-danger" disabled>Claimed</button>;
     }
     return <button className="btn btn-info button claimBtn"><span>Claim</span></button>;
   };
