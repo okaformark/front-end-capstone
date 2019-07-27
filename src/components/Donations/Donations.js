@@ -9,6 +9,11 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
 }
   from 'reactstrap';
 // import donationsData from '../../helpers/data/donationsData';
@@ -29,6 +34,20 @@ class Donations extends React.Component {
     deleteDonations(donation.id);
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+    };
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal,
+    }));
+  }
 
   addClaim = (e) => {
     e.preventDefault();
@@ -49,7 +68,7 @@ class Donations extends React.Component {
     if (donation.uid === uid) {
       return null;
     }
-    return <button className="btn btn-info button claimBtn" onClick={this.addClaim}><span>Claim</span></button>;
+    return <button className="btn btn-info button claimBtn" onClick={this.toggle}><span>Claim</span></button>;
   };
 
   deleteButton = () => {
@@ -95,6 +114,16 @@ class Donations extends React.Component {
             {this.claimButton()}
           </CardBody>
         </Card>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalBody>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.addClaim}>Claim</Button>{this.addClaim}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
         </div>
       </div>
     );
