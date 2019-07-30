@@ -1,4 +1,9 @@
 import React from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/storage';
+import FileUploader from 'react-firebase-file-uploader';
 import {
   FormFeedback,
   FormText,
@@ -8,7 +13,10 @@ import {
   Label,
   Input,
 } from 'reactstrap';
+import fbConnection from '../../helpers/data/connection';
 import donationsData from '../../helpers/data/donationsData';
+
+fbConnection();
 
 const defaultDonation = {
   foodDescription: '',
@@ -17,6 +25,9 @@ const defaultDonation = {
   date: '',
   time: '',
   foodImageUrl: '',
+  image: 'image',
+  progress: 0,
+  isClaimed: false,
 };
 
 class EditDonation extends React.Component {
@@ -29,6 +40,28 @@ class EditDonation extends React.Component {
     donationsData.getSelectedDonation(donationsId)
       .then(donationsPromise => this.setState({ newDonation: donationsPromise.data }))
       .catch(err => console.error('could not edit', err));
+  }
+
+  handleUpLoadStart = () => {
+    console.error('heyy');
+    this.setState({ progress: 0 });
+  }
+
+  handleUpLoadSuccess = (fileName) => {
+    console.error('upload start');
+    this.setState({
+      image: fileName,
+      progress: 100,
+    });
+    firebase.storage().ref('foodImages').child(fileName).getDownloadURL()
+      .then((url) => {
+        const tempDonation = { ...this.state.newDonation };
+        console.error(url);
+        tempDonation.foodImageUrl = url;
+        this.setState({
+          newDonation: tempDonation,
+        });
+      });
   }
 
   formFieldStringState = (name, e) => {
@@ -100,18 +133,18 @@ class EditDonation extends React.Component {
                 onChange={this.eventTypeChange}
                 />
         </FormGroup>
-        <FormGroup>
+        {/* <FormGroup>
           <Label for="image">UpLoad Image</Label>
           <Input
             type="text"
-            className="foodImage"
+            className="foodImageSrc"
             width="100%"
             src={newDonation.foodImageUrl}
             alt=""
             placeholder="upload pics"
             onChange={this.foodImageUrlChange}
             />
-        </FormGroup>
+        </FormGroup> */}
           <FormGroup>
             <Label for="exampleDate">Date</Label>
             <Input
@@ -134,7 +167,23 @@ class EditDonation extends React.Component {
               onChange={this.timeChange}
               />
           </FormGroup>
-          <Button className="btn btn-outline-info">update</Button>
+          <FormGroup>
+            <label className="">Progress:</label>
+            <p>{this.state.progress}</p>
+            <label className="">Image: </label>
+            {this.state.image && <img className="foodImage" src={newDonation.foodImageUrl} alt="" />}
+            <FileUploader
+              accept="image/*"
+              name='image'
+              storageRef={firebase.storage().ref('foodImages')}
+              onUploadStart={this.handleUpLoadStart}
+              onUploadSuccess={this.handleUpLoadSuccess}
+              onUploadError={err => console.error('failed', err)}
+              onProgress={this.handleProgress}
+              // onChange={this.foodImageUrlChange}
+            />
+          </FormGroup>
+          <Button className="btn btn-outline-info">Update</Button>
         </Form>
       </div>
     );
