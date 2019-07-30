@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
-// import FileUploader from 'react-firebase-file-uploader';
+import FileUploader from 'react-firebase-file-uploader';
 import {
   FormFeedback,
   FormText,
@@ -25,27 +25,36 @@ const defaultDonation = {
   date: '',
   time: '',
   foodImageUrl: '',
+  image: 'image',
+  progress: 0,
+  isClaimed: false,
 };
 
 class Donate extends React.Component {
   state = {
     newDonation: defaultDonation,
-    image: '',
-    imageUrl: '',
-    progress: 0,
   }
 
-  handleUpLoadStart = () => this.setState({ progress: 0 })
+  handleUpLoadStart = () => {
+    console.error('heyy');
+    this.setState({ progress: 0 });
+  }
 
   handleUpLoadSuccess = (fileName) => {
+    console.error('upload start');
     this.setState({
       image: fileName,
       progress: 100,
     });
-    firebase.storage().ref('foodImages').child(`${fileName}.png`).getDownloadURL()
-      .then(url => this.setState({
-        imageUrl: url,
-      }));
+    firebase.storage().ref('foodImages').child(fileName).getDownloadURL()
+      .then((url) => {
+        const tempDonation = { ...this.state.newDonation };
+        console.error(url);
+        tempDonation.foodImageUrl = url;
+        this.setState({
+          newDonation: tempDonation,
+        });
+      });
   }
 
   formFieldStringState = (name, e) => {
@@ -73,8 +82,9 @@ class Donate extends React.Component {
     e.preventDefault();
     const saveDonation = { ...this.state.newDonation };
     saveDonation.uid = firebase.auth().currentUser.uid;
+    console.error(saveDonation);
     donationsData.postDonation(saveDonation)
-      .then(() => this.props.history.push('/home'))
+      // .then(() => this.props.history.push('/home'))
       .then(() => this.props.history.push('/my-donations'))
       .catch(err => console.error('could not create doanation', err));
   }
@@ -121,7 +131,7 @@ class Donate extends React.Component {
                 onChange={this.eventTypeChange}
                 />
         </FormGroup>
-        <FormGroup>
+        {/* <FormGroup>
           <Label for="image">UpLoad Image</Label>
           <Input
             type="text"
@@ -132,7 +142,7 @@ class Donate extends React.Component {
             alt=""
             onChange={this.foodImageUrlChange}
             />
-        </FormGroup>
+        </FormGroup> */}
           <FormGroup>
             <Label for="exampleDate">Date</Label>
             <Input
@@ -155,21 +165,38 @@ class Donate extends React.Component {
               onChange={this.timeChange}
               />
           </FormGroup>
+          {/* <FormGroup>
+            <Label className="">Progress:</Label>
+            <progress value={this.state.progress} max="100" />
+            <Label for="imageUpload">UpLoad Image</Label>
+            <Input
+              type="file"
+              width="100%"
+              name="upload"
+              id="imageUpload"
+              onChange={this.handleChange}
+              img src={this.state.url} alt="images"
+            />
+            <Button onClick={this.handleUpload}>UpLoad</Button>
+          </FormGroup> */}
+          <FormGroup>
+            <label className="">Progress:</label>
+            <p>{this.state.progress}</p>
+            <label className="">Image: </label>
+            {this.state.image && <img className="foodImage" src={newDonation.foodImageUrl} alt="" />}
+            <FileUploader
+              accept="image/*"
+              name='image'
+              storageRef={firebase.storage().ref('foodImages')}
+              onUploadStart={this.handleUpLoadStart}
+              onUploadSuccess={this.handleUpLoadSuccess}
+              onUploadError={err => console.error('failed', err)}
+              onProgress={this.handleProgress}
+              // onChange={this.foodImageUrlChange}
+            />
+          </FormGroup>
           <Button className="btn btn-outline-info">Donate</Button>
         </Form>
-        {/* <label className="">Progress:</label>
-        <p>{this.state.progress}</p>
-        <label className="">Image:" "</label>
-        {this.state.image && <img src={this.state.image} alt="" />}
-        <FileUploader
-          accept="image/*"
-          name='image'
-          storageRef={firebase.storage().ref('foodImages')}
-          onUpLoadStart={this.handleUpLoadStart}
-          onUpLoadSuccess={this.handleUpLoadSuccess}
-          onProgress={this.handleProgress}
-        />
-        <br/> */}
       </div>
     );
   }
