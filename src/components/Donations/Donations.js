@@ -93,6 +93,15 @@ class Donations extends React.Component {
     return <button className="btn btn-info button"><span>Edit</span></button>;
   }
 
+  viewButton = () => {
+    const { donation } = this.props;
+    const { uid } = firebase.auth().currentUser;
+    if (donation.isClaimed && donation.uid !== uid) {
+      return null;
+    }
+    return <button className="btn btn-info button"><span>View</span></button>;
+  }
+
 
   render() {
     const { donation } = this.props;
@@ -111,14 +120,14 @@ class Donations extends React.Component {
             <CardText>{donation.foodDescription}</CardText>
             {this.deleteButton()}
             <Link to={editLink} >{this.editButton()}</Link>
-            <Link to={selectedLink} ><button className="btn btn-info button"><span>View</span></button></Link>
+            <Link to={selectedLink} >{this.viewButton()}</Link>
             {this.claimButton()}
           </CardBody>
         </Card>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
           <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p>Enjoy your food!!!</p>
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.addClaim}>Claim</Button>

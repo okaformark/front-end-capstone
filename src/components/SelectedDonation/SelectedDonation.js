@@ -38,6 +38,7 @@ class SelectedDonation extends React.Component {
        <div className="SelectedDonation col">
         <h1>Selected Donation</h1>
         <Donations
+          className="col-6"
           donation={donations}
           key={donations.id}
           deleteDonations={this.deleteDonation}

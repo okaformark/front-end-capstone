@@ -28,9 +28,6 @@ class MyDonations extends React.Component {
 
   render() {
     const { myDonations } = this.state;
-    // const { deleteDonations } = this.props;
-    // deleteDonations(myDonations.id);
-    console.error(myDonations);
     const makeMyDonationsCard = myDonations.map(eachDonation => (
       <Donations
         donation={eachDonation}
