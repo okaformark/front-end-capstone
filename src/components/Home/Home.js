@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Button, ButtonGroup } from 'reactstrap';
 // import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -59,7 +59,7 @@ class Home extends React.Component {
         unclaimedDonations={this.filterDonations}
         />
     ));
-    const profileLink = '/my-profile/789';
+    // const profileLink = '/my-profile/789';
     return (
       <div className="Home col">
         <h1>HOME</h1>
@@ -71,7 +71,7 @@ class Home extends React.Component {
         <div className="row">
           {makeDonationsCard}
         </div>
-        <Link className="btn btn-info" to={profileLink}>Profile</Link>
+        {/* <Link className="btn btn-info" to={profileLink}>Profile</Link> */}
       </div>
     );
   }

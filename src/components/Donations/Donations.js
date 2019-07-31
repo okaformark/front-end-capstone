@@ -16,7 +16,7 @@ import {
   ModalFooter,
 }
   from 'reactstrap';
-// import donationsData from '../../helpers/data/donationsData';
+// import BodyImages from 'react-body-images';
 import donationsShape from '../../helpers/propz/donationsShape';
 import './Donations.scss';
 import donationsData from '../../helpers/data/donationsData';
