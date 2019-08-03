@@ -15,6 +15,7 @@ import {
 } from 'reactstrap';
 import fbConnection from '../../helpers/data/connection';
 import donationsData from '../../helpers/data/donationsData';
+import './Donate.scss';
 
 fbConnection();
 
@@ -84,7 +85,6 @@ class Donate extends React.Component {
     saveDonation.uid = firebase.auth().currentUser.uid;
     console.error(saveDonation);
     donationsData.postDonation(saveDonation)
-      // .then(() => this.props.history.push('/home'))
       .then(() => this.props.history.push('/my-donations'))
       .catch(err => console.error('could not create doanation', err));
   }
@@ -92,7 +92,8 @@ class Donate extends React.Component {
   render() {
     const { newDonation } = this.state;
     return (
-      <div className="Donate col-4">
+      <div className="card">
+      <div className="Donate">
         <h1>Donate</h1>
         <Form onSubmit={this.formSubmit}>
           <FormGroup>
@@ -131,18 +132,6 @@ class Donate extends React.Component {
                 onChange={this.eventTypeChange}
                 />
         </FormGroup>
-        {/* <FormGroup>
-          <Label for="image">UpLoad Image</Label>
-          <Input
-            type="text"
-            className="foodImageSrc"
-            width="100%"
-            src={newDonation.foodImageUrl}
-            placeholder="upload pictures"
-            alt=""
-            onChange={this.foodImageUrlChange}
-            />
-        </FormGroup> */}
           <FormGroup>
             <Label for="exampleDate">Date</Label>
             <Input
@@ -165,20 +154,6 @@ class Donate extends React.Component {
               onChange={this.timeChange}
               />
           </FormGroup>
-          {/* <FormGroup>
-            <Label className="">Progress:</Label>
-            <progress value={this.state.progress} max="100" />
-            <Label for="imageUpload">UpLoad Image</Label>
-            <Input
-              type="file"
-              width="100%"
-              name="upload"
-              id="imageUpload"
-              onChange={this.handleChange}
-              img src={this.state.url} alt="images"
-            />
-            <Button onClick={this.handleUpload}>UpLoad</Button>
-          </FormGroup> */}
           <FormGroup>
             <label className="">Progress:</label>
             <p>{this.state.progress}</p>
@@ -192,11 +167,11 @@ class Donate extends React.Component {
               onUploadSuccess={this.handleUpLoadSuccess}
               onUploadError={err => console.error('failed', err)}
               onProgress={this.handleProgress}
-              // onChange={this.foodImageUrlChange}
             />
           </FormGroup>
           <Button className="btn btn-outline-info">Donate</Button>
         </Form>
+      </div>
       </div>
     );
   }

@@ -133,18 +133,6 @@ class EditDonation extends React.Component {
                 onChange={this.eventTypeChange}
                 />
         </FormGroup>
-        {/* <FormGroup>
-          <Label for="image">UpLoad Image</Label>
-          <Input
-            type="text"
-            className="foodImageSrc"
-            width="100%"
-            src={newDonation.foodImageUrl}
-            alt=""
-            placeholder="upload pics"
-            onChange={this.foodImageUrlChange}
-            />
-        </FormGroup> */}
           <FormGroup>
             <Label for="exampleDate">Date</Label>
             <Input
@@ -180,7 +168,6 @@ class EditDonation extends React.Component {
               onUploadSuccess={this.handleUpLoadSuccess}
               onUploadError={err => console.error('failed', err)}
               onProgress={this.handleProgress}
-              // onChange={this.foodImageUrlChange}
             />
           </FormGroup>
           <Button className="btn btn-outline-info">Update</Button>

@@ -16,7 +16,7 @@ import {
   ModalFooter,
 }
   from 'reactstrap';
-// import donationsData from '../../helpers/data/donationsData';
+// import BodyImages from 'react-body-images';
 import donationsShape from '../../helpers/propz/donationsShape';
 import './Donations.scss';
 import donationsData from '../../helpers/data/donationsData';
@@ -109,7 +109,7 @@ class Donations extends React.Component {
     const selectedLink = `/donation/${donation.id}`;
     return (
       <div className="Donation col-3">
-        <div className="card">
+        {/* <div className="card"> */}
         <Card>
           <CardBody>
             <CardTitle>{donation.eventType}</CardTitle>
@@ -135,7 +135,7 @@ class Donations extends React.Component {
           </ModalFooter>
         </Modal>
         </div>
-      </div>
+    // </div>
     );
   }
 }

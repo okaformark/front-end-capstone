@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import donationsData from '../../helpers/data/donationsData';
 import Donations from '../Donations/Donations';
+import './MyDonations.scss';
 
 class MyDonations extends React.Component {
   state = {
