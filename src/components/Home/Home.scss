@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Teko:600&display=swap');
 .Home{
   display: block;
+  font-family: 'Teko', sans-serif;
 }
-// .Home { 
-//   background: url(https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=maja-petric-vGQ49l9I4EE-unsplash.jpg) no-repeat center center fixed; 
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
-// }
+.Home { 
+  height:100vh-1600*94;
+  background: url("http://mrwallpapers.com/wp-content/uploads/2018/10/wall-leaves-wooden-background-images-hd.jpg");
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  background-size: cover;
+  background-position: center center ; 
+  background-size: cover;
+  background-attachment: fixed;
+}

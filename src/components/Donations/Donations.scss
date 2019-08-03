@@ -3,15 +3,18 @@
 }
 .col-3{
   padding: 10px;
+  max-width: 25%;
 }
 .card{
   border: 10px double black;
   position: relative;
+  width: 300px;
+  margin: 0 auto;
 }
 .deleteBtn{
   position: absolute;
-  right: -20px;
-  top: -20px;
+  right: -10px;
+  top: -10px;
   z-index: 1;
 }
 .foodImage{

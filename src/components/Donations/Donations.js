@@ -109,7 +109,7 @@ class Donations extends React.Component {
     const selectedLink = `/donation/${donation.id}`;
     return (
       <div className="Donation col-3">
-        <div className="card">
+        {/* <div className="card"> */}
         <Card>
           <CardBody>
             <CardTitle>{donation.eventType}</CardTitle>
@@ -135,7 +135,7 @@ class Donations extends React.Component {
           </ModalFooter>
         </Modal>
         </div>
-      </div>
+    // </div>
     );
   }
 }

@@ -1,25 +1,31 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import { Button, ButtonGroup } from 'reactstrap';
-// import firebase from 'firebase/app';
 import 'firebase/auth';
 import donationsData from '../../helpers/data/donationsData';
 import Donations from '../Donations/Donations';
-// import Claims from '../Claims/Claims';
+import Search from '../Search/Search';
 import './Home.scss';
 
 class Home extends React.Component {
   state = {
     donations: [],
     donationFilter: 'all',
+    searchDonations: [],
   }
 
   getDonations = () => {
-    // const { uid } = firebase.auth().currentUser;
     donationsData.getAllDonations()
-      .then(donations => this.setState({ donations }))
+      .then((donations) => {
+        this.setState({ donations });
+      })
       .catch(err => console.error('could not get donations', err));
   }
+
+  searchDonationsFunc = (query) => {
+    const { donations } = this.state;
+    const searchedDonations = donations.filter(donation => donation.foodDescription.includes(query));
+    this.setState({ donations: searchedDonations });
+  };
 
   deleteDonations = (donationsId) => {
     donationsData.deleteDonations(donationsId)
@@ -59,10 +65,10 @@ class Home extends React.Component {
         unclaimedDonations={this.filterDonations}
         />
     ));
-    // const profileLink = '/my-profile/789';
     return (
       <div className="Home col">
         <h1>HOME</h1>
+        <Search searchDonationsFunc={this.searchDonationsFunc.bind(this)} />
         <ButtonGroup>
         <Button id="all" onClick={this.filterDonations}>All</Button>
         <Button id="claimed" onClick={this.filterDonations}>Claimed</Button>
@@ -71,7 +77,6 @@ class Home extends React.Component {
         <div className="row">
           {makeDonationsCard}
         </div>
-        {/* <Link className="btn btn-info" to={profileLink}>Profile</Link> */}
       </div>
     );
   }
