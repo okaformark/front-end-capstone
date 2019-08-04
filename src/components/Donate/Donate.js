@@ -83,7 +83,6 @@ class Donate extends React.Component {
     e.preventDefault();
     const saveDonation = { ...this.state.newDonation };
     saveDonation.uid = firebase.auth().currentUser.uid;
-    console.error(saveDonation);
     donationsData.postDonation(saveDonation)
       .then(() => this.props.history.push('/my-donations'))
       .catch(err => console.error('could not create doanation', err));

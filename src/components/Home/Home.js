@@ -23,8 +23,12 @@ class Home extends React.Component {
 
   searchDonationsFunc = (query) => {
     const { donations } = this.state;
-    const searchedDonations = donations.filter(donation => donation.foodDescription.includes(query));
-    this.setState({ donations: searchedDonations });
+    const searchDonations = this.state.donations;
+    if (query !== '') {
+      const searchedDonations = searchDonations.filter(donation => donation.foodDescription.toUpperCase().includes(query.toUpperCase()));
+      return this.setState({ donations: searchedDonations });
+    }
+    return donations;
   };
 
   deleteDonations = (donationsId) => {

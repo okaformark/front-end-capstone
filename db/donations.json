@@ -2,7 +2,7 @@
   "donations": {
     "donation1": {
       "uid": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
-      "foodDescription": "FireHouse subs with iced tea",
+      "foodDescription": "FireHouse Subs, Iced tea, Cookies",
       "foodCategory": "",
       "pickUpLocation": "500 interstate blvd s nashville tn 37210",
       "eventType": "Office party",
@@ -14,7 +14,7 @@
     },
     "donation2": {
       "uid": "12345",
-      "foodDescription": "Baked potatoes, grilled chicken and some gravy",
+      "foodDescription": "Baked Potatoes, Grilled Chicken, Gravy",
       "foodCategory": "",
       "pickUpLocation": "123 nashville rd",
       "eventType": "Wedding",
@@ -26,7 +26,7 @@
     },
     "donation3": {
       "uid": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
-      "foodDescription": "Sandwiches, burgers, sodas and fries",
+      "foodDescription": "Sandwiches, Burgers, Sodas, Fries",
       "foodCategory": "",
       "pickUpLocation": "234 nashville blvd",
       "eventType": "Birthday",
@@ -38,7 +38,7 @@
     },
     "donation4": {
       "uid": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
-      "foodDescription": "Mac and cheese, mashed potatoes and pork",
+      "foodDescription": "Mac and Cheese, Mashed Potatoes and Pork",
       "foodCategory": "",
       "pickUpLocation": "345 nashville rd",
       "eventType": "Family dinner",
@@ -50,7 +50,7 @@
     },
     "donation5": {
       "uid": "12345",
-      "foodDescription": "Green, beans, potatoes, tomatoes, you name it!!",
+      "foodDescription": "Green, Beans, Potatoes, Tomatoes",
       "foodCategory": "",
       "pickUpLocation": "456 nashville circle",
       "eventType": "Thanksgiving dinner",
@@ -62,7 +62,7 @@
     },
     "donation6": {
       "uid": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
-      "foodDescription": "chinese food, indian cuisine and some thai foods",
+      "foodDescription": "Chinese food, Indian cuisine and Thai foods",
       "foodCategory": "",
       "pickUpLocation": "567 nashville drive",
       "eventType": "Xmas party",
