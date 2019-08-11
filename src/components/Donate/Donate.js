@@ -159,10 +159,10 @@ class Donate extends React.Component {
             <Label for="exampleTime">Time</Label>
             <Input
               type="time"
-              name="time"
+              name="ExampleTime"
               id="exampleTime"
               placeholder="time placeholder"
-              value={newDonation.time.toString()}
+              value={newDonation.time}
               onChange={this.timeChange}
               />
           </FormGroup>

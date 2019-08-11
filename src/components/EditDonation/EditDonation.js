@@ -151,7 +151,7 @@ class EditDonation extends React.Component {
                 name="time"
                 id="exampleTime"
                 placeholder="time placeholder"
-                value={newDonation.time}
+                value={newDonation.time.toString()}
                 onChange={this.timeChange}
                 />
             </FormGroup>
