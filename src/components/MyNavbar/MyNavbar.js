@@ -58,9 +58,9 @@ class MyNavbar extends React.Component {
 
     return (
       <div className="MyNavbar">
-        <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="/" className="title">FoodsGiving</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+        <Navbar color="dark" dark expand="md" >
+          <NavbarBrand className="title" href="/">FoodsGiving</NavbarBrand>
+          <NavbarToggler onClick={this.toggle.bind(this)} />
           <Collapse isOpen={this.state.isOpen} navbar>
             {buildNavbar()}
             </Collapse>
