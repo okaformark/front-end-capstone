@@ -13,13 +13,13 @@ import {
   Label,
   Input,
 } from 'reactstrap';
-import Geocode from 'react-geocode';
+// import Geocode from 'react-geocode';
 import fbConnection from '../../helpers/data/connection';
 import donationsData from '../../helpers/data/donationsData';
 import './Donate.scss';
 
 fbConnection();
-Geocode.setApiKey('AIzaSyDHBYPYMmXp8wvKQBfabDH54BXNQDSXBiI');
+// Geocode.setApiKey('AIzaSyDHBYPYMmXp8wvKQBfabDH54BXNQDSXBiI');
 
 const defaultDonation = {
   foodDescription: '',
