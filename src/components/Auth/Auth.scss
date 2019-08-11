@@ -1,3 +1,25 @@
-.Auth.scss{
+.Auth{
   display: block;
+}
+html, body{
+  margin: 0;
+  padding: 0;
+}
+.Auth, html { 
+  height:100vh-1597*38;
+  background: url("https://d301qp0kpaemqw.cloudfront.net/nonprofits/986dd391-7cf2-4eed-9311-8ae40eaadad8/background_image/nashua-soup-kitchen-and-shelter-inc_processed_4d3ecc154ed2681e9383c6a770797654981d35282ee1626a8e0275dd3e7ed4d7_background_image.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center ; 
+  background-size: cover;
+  background-attachment: fixed;
+}
+.centered{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
 }

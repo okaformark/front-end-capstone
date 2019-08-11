@@ -9,7 +9,8 @@
   border: 10px double black;
   position: relative;
   width: 300px;
-  margin: 0 auto;
+  margin: 6px;
+  height: 450px;
 }
 .deleteBtn{
   position: absolute;
@@ -66,4 +67,10 @@ img{
 .button:hover span:after {
   opacity: 1;
   right: 0;
+}
+.food{
+  color: red;
+}
+.event {
+  font-size: 1.2rem;
 }

@@ -6,12 +6,11 @@ class Search extends React.Component {
     this.props.searchDonationsFunc(e.target.value);
   }
 
-
   render() {
     return (
-     <div className= "row">
-        <input type="text" className="input" placeholder="Search..." onKeyUp={this.handleSearch.bind(this)} />
-      </div>
+    <div className="form-inline">
+      <input type="search" placeholder="Search..." className="form-control" onKeyUp={this.handleSearch.bind(this)} />
+    </div>
     );
   }
 }

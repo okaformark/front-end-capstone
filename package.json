@@ -12,13 +12,17 @@
     "react": "^16.8.6",
     "react-addons-css-transition-group": "^15.6.2",
     "react-body-images": "^1.0.1",
+    "react-bootstrap": "^1.0.0-beta.10",
     "react-dom": "^16.8.6",
     "react-filter-search": "^1.0.8",
     "react-firebase-file-uploader": "^2.4.2",
+    "react-geocode": "^0.1.2",
+    "react-iframe": "^1.8.0",
     "react-key-handler": "^1.2.0-beta.3",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-search-field": "^1.0.0",
+    "react-transition-group": "^4.2.2",
     "reactstrap": "^8.0.1"
   },
   "scripts": {

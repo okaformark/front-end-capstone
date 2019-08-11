@@ -6,11 +6,13 @@ import Donations from '../Donations/Donations';
 import Search from '../Search/Search';
 import './Home.scss';
 
+
 class Home extends React.Component {
   state = {
     donations: [],
     donationFilter: 'all',
     searchDonations: [],
+    userLocation: { lat: 13, long: 12 },
   }
 
   getDonations = () => {
@@ -19,6 +21,17 @@ class Home extends React.Component {
         this.setState({ donations });
       })
       .catch(err => console.error('could not get donations', err));
+  }
+
+  getUserPosition = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const lat = position.coords.latitude;
+      const long = position.coords.longitude;
+      this.setState({
+        userLocation: { lat, long },
+      });
+      // console.error(this.state.userLocation);
+    });
   }
 
   searchDonationsFunc = (query) => {
@@ -39,7 +52,9 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.getDonations();
+    this.getUserPosition();
   }
+
 
   filterDonations = (e) => {
     const donationFilter = e.target.id;
@@ -70,16 +85,18 @@ class Home extends React.Component {
         />
     ));
     return (
-      <div className="Home col">
+      <div className="Home">
         <h1>HOME</h1>
         <Search searchDonationsFunc={this.searchDonationsFunc.bind(this)} />
-        <ButtonGroup>
+        <ButtonGroup className="filterButton">
         <Button id="all" onClick={this.filterDonations}>All</Button>
         <Button id="claimed" onClick={this.filterDonations}>Claimed</Button>
         <Button id="unclaimed" onClick={this.filterDonations}>Unclaimed</Button>
       </ButtonGroup>
+      <div className="container">
         <div className="row">
           {makeDonationsCard}
+          </div>
         </div>
       </div>
     );

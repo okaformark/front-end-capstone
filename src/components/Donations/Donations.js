@@ -16,7 +16,6 @@ import {
   ModalFooter,
 }
   from 'reactstrap';
-// import BodyImages from 'react-body-images';
 import donationsShape from '../../helpers/propz/donationsShape';
 import './Donations.scss';
 import donationsData from '../../helpers/data/donationsData';
@@ -66,6 +65,9 @@ class Donations extends React.Component {
     if (donation.isClaimed) {
       return <button className="btn btn-sm btn-danger" disabled>Claimed</button>;
     }
+    if (donation.uid !== uid && donation.isClaimed) {
+      return <button className="btn btn-sm btn-danger" disabled>Pick Up</button>;
+    }
     if (donation.uid === uid) {
       return null;
     }
@@ -108,16 +110,17 @@ class Donations extends React.Component {
     const editLink = `/edit/${donation.id}`;
     const selectedLink = `/donation/${donation.id}`;
     return (
-      <div className="Donation col-3">
-        {/* <div className="card"> */}
+      <div className="Donations col-lg 4 col-md-4 col-sm-12 col-xs-12">
         <Card>
           <CardBody>
-            <CardTitle>{donation.eventType}</CardTitle>
+            <CardTitle className="event">{donation.eventType}</CardTitle>
             <CardSubtitle>{donation.pickUpLocation}</CardSubtitle>
+            <CardSubtitle>{donation.date}</CardSubtitle>
+            <CardSubtitle>{donation.time}</CardSubtitle>
           </CardBody>
           <img className="foodImage" src={donation.foodImageUrl} alt="" />
           <CardBody>
-            <CardText>{donation.foodDescription}</CardText>
+            <CardText className="food">{donation.foodDescription}</CardText>
             {this.deleteButton()}
             <Link to={editLink} >{this.editButton()}</Link>
             <Link to={selectedLink} >{this.viewButton()}</Link>
@@ -135,7 +138,6 @@ class Donations extends React.Component {
           </ModalFooter>
         </Modal>
         </div>
-    // </div>
     );
   }
 }

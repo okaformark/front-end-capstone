@@ -13,11 +13,13 @@ import {
   Label,
   Input,
 } from 'reactstrap';
+import Geocode from 'react-geocode';
 import fbConnection from '../../helpers/data/connection';
 import donationsData from '../../helpers/data/donationsData';
 import './Donate.scss';
 
 fbConnection();
+Geocode.setApiKey('AIzaSyDHBYPYMmXp8wvKQBfabDH54BXNQDSXBiI');
 
 const defaultDonation = {
   foodDescription: '',
@@ -29,6 +31,8 @@ const defaultDonation = {
   image: 'image',
   progress: 0,
   isClaimed: false,
+  lat: '',
+  long: '',
 };
 
 class Donate extends React.Component {
@@ -37,12 +41,10 @@ class Donate extends React.Component {
   }
 
   handleUpLoadStart = () => {
-    console.error('heyy');
     this.setState({ progress: 0 });
   }
 
   handleUpLoadSuccess = (fileName) => {
-    console.error('upload start');
     this.setState({
       image: fileName,
       progress: 100,
@@ -50,13 +52,24 @@ class Donate extends React.Component {
     firebase.storage().ref('foodImages').child(fileName).getDownloadURL()
       .then((url) => {
         const tempDonation = { ...this.state.newDonation };
-        console.error(url);
         tempDonation.foodImageUrl = url;
         this.setState({
           newDonation: tempDonation,
         });
       });
   }
+
+  // getGeocode = () => {
+  //   const lat = {};
+  //   const long = {};
+  //   Geocode.fromAddress('Eiffel Tower').then(
+  //     response => ({
+  //       lat: response.results[0].geometry.location.lat,
+  //       long: response.results[0].geometry.location.long,
+  //     }),
+  //   );
+  // }
+
 
   formFieldStringState = (name, e) => {
     const tempDonation = { ...this.state.newDonation };
@@ -91,7 +104,8 @@ class Donate extends React.Component {
   render() {
     const { newDonation } = this.state;
     return (
-      <div className="card">
+      <div className="bg-image">
+      <div className="card-donate">
       <div className="Donate">
         <h1>Donate</h1>
         <Form onSubmit={this.formSubmit}>
@@ -149,7 +163,7 @@ class Donate extends React.Component {
               name="time"
               id="exampleTime"
               placeholder="time placeholder"
-              value={newDonation.time}
+              value={newDonation.time.toString()}
               onChange={this.timeChange}
               />
           </FormGroup>
@@ -170,6 +184,7 @@ class Donate extends React.Component {
           </FormGroup>
           <Button className="btn btn-outline-info">Donate</Button>
         </Form>
+      </div>
       </div>
       </div>
     );

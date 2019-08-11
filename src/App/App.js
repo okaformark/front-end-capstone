@@ -8,6 +8,10 @@ import {
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
 import Auth from '../components/Auth/Auth';
 import MyNavbar from '../components/MyNavbar/MyNavbar';
 import Home from '../components/Home/Home';
@@ -65,8 +69,12 @@ class App extends React.Component {
         <BrowserRouter>
           <React.Fragment>
             <MyNavbar authed={authed}/>
-            {/* <div className="container">
-              <div className="row"> */}
+            {/* <div className="container"> */}
+            <TransitionGroup>
+              <CSSTransition
+                timeout={300}
+                classNames="fade"
+              >
                 <Switch>
                   <PublicRoute path='/auth' component={Auth} authed={authed} />
                   <PrivateRoute path='/home' component={Home} authed={authed} />
@@ -77,8 +85,9 @@ class App extends React.Component {
                   <PrivateRoute path='/donation/:id' component={SelectedDonation} authed={authed} />
                   <Redirect from= "*" to="/auth" />
                 </Switch>
-              {/* </div>
-            </div> */}
+              </CSSTransition>
+              </TransitionGroup>
+              {/* </div> */}
           </React.Fragment>
         </BrowserRouter>
       </div>
