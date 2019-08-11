@@ -19,7 +19,6 @@ import donationsData from '../../helpers/data/donationsData';
 import './Donate.scss';
 
 fbConnection();
-// Geocode.setApiKey('AIzaSyDHBYPYMmXp8wvKQBfabDH54BXNQDSXBiI');
 
 const defaultDonation = {
   foodDescription: '',
