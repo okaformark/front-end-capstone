@@ -12,6 +12,7 @@ class Home extends React.Component {
     donations: [],
     donationFilter: 'all',
     searchDonations: [],
+    // time: new Date(),
     userLocation: { lat: 13, long: 12 },
   }
 
@@ -22,6 +23,16 @@ class Home extends React.Component {
       })
       .catch(err => console.error('could not get donations', err));
   }
+
+  // currentTime() {
+  //   this.setState({
+  //     time: new Date(),
+  //   });
+  //   const interval = setInterval(() => this.currentTime(), 1000);
+  //   const timeResult = interval - this.state.time;
+  //   console.error(timeResult);
+  // }
+
 
   getUserPosition = () => {
     navigator.geolocation.getCurrentPosition((position) => {

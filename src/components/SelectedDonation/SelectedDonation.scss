@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Teko:600&display=swap');
 .SelectedDonation{
   display: block;
+  font-family: 'Teko', sans-serif;
 }
-.SelectedDonation { 
+.SelectedDonation, html { 
+  height:100vh-1600*94;
   background: url("https://alabamachildhoodfood.com/files/bigstock/2016/03/Background-Of-Multiple-Sealed-112916054.jpg");
   background-size: cover;
   background-position: center center ; 

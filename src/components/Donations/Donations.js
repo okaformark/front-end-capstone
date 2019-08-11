@@ -125,6 +125,9 @@ class Donations extends React.Component {
             <Link to={editLink} >{this.editButton()}</Link>
             <Link to={selectedLink} >{this.viewButton()}</Link>
             {this.claimButton()}
+            <CardText>
+            <small className="text-muted"></small>
+          </CardText>
           </CardBody>
         </Card>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
