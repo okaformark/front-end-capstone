@@ -1,17 +1,12 @@
-// import React from 'react';
-// import Chatkit from '@pusher/chatkit-client';
+import React from 'react';
 
-// class Map extends React.Component {
-//   componentDidMount() {
-//     const ChatManager = new Chatkit.ChatManager({});
-//   }
+class Map extends React.Component {
+  render() {
+    return (
+      <div className="Map">
+      </div>
+    );
+  }
+}
 
-//   render() {
-//     return (
-//       <div className="Map">
-//       </div>
-//     );
-//   }
-// }
-
-// export default Map;
+export default Map;

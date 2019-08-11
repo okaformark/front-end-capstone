@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import Donations from '../Donations/Donations';
 import donationsData from '../../helpers/data/donationsData';
+import './SelectedDonation.scss';
 
 class SelectedDonation extends React.Component {
   state = {
@@ -37,13 +38,15 @@ class SelectedDonation extends React.Component {
     return (
        <div className="SelectedDonation col">
         <h1>Selected Donation</h1>
+        <div className="container col-6">
         <Donations
-          className="col-6"
+          className=""
           donation={donations}
           key={donations.id}
           deleteDonations={this.deleteDonation}
           to={editLink}
           />
+        </div>
         </div>
     );
   }

@@ -4,10 +4,11 @@
   font-family: 'Teko', sans-serif;
 
 }
-// .MyDonations { 
-//   background: url(https://images.unsplash.com/photo-1517102183434-58e6be84ba50?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=sharon-mccutcheon-ZQI6N_jaM_I-unsplash.jpg) no-repeat center center fixed; 
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
-// }
+.MyDonations { 
+  height:100vh-1600*94;
+  background: url("https://marketplace.canva.com/MADer_WzYKo/1/thumbnail_large/canva-food-donations-on-wooden-background-MADer_WzYKo.jpg");
+  background-size: cover;
+  background-position: center center ; 
+  background-size: cover;
+  background-attachment: fixed;
+}

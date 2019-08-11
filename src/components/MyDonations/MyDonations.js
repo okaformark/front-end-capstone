@@ -39,8 +39,10 @@ class MyDonations extends React.Component {
     return (
       <div className="MyDonations col">
         <h1>My Donations</h1>
-        <div className="row">
-          {makeMyDonationsCard}
+        <div className="container">
+          <div className="row">
+              {makeMyDonationsCard}
+          </div>
         </div>
       </div>
     );

@@ -2,7 +2,7 @@
   "donations": {
     "donation1": {
       "uid": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
-      "foodDescription": "FireHouse subs with iced tea",
+      "foodDescription": "FireHouse Subs, Iced tea, Cookies",
       "foodCategory": "",
       "pickUpLocation": "500 interstate blvd s nashville tn 37210",
       "eventType": "Office party",
@@ -10,67 +10,106 @@
       "time": "1:00pm",
       "foodImageUrl": "https://eatforum.org/content/uploads/2018/05/EAT_pasta_tomato_basil_2018_1200x675-900x675.jpg",
       "recipientUid": "",
-      "isClaimed": false
+      "isClaimed": false, 
+      "lat": 36.133057,
+      "long":  -86.756604
     },
     "donation2": {
       "uid": "12345",
-      "foodDescription": "Baked potatoes, grilled chicken and some gravy",
+      "foodDescription": "Baked Potatoes, Grilled Chicken, Gravy",
       "foodCategory": "",
-      "pickUpLocation": "123 nashville rd",
+      "pickUpLocation": "501 Broadway, Nashville, TN 37203",
       "eventType": "Wedding",
       "date": "2019-05-03",
       "time": "4:00pm",
       "foodImageUrl": "https://i0.wp.com/globaltechgadgets.com/wp-content/uploads/2019/05/Now-You-Can-Order-Food-Directly-From-Google-Search-Results.png?fit=950%2C650&ssl=1",
       "recipientId": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
-      "isClaimed":true
+      "isClaimed":true,
+      "lat": 36.15945,
+      "long":  -86.778442
     },
     "donation3": {
       "uid": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
-      "foodDescription": "Sandwiches, burgers, sodas and fries",
+      "foodDescription": "Sandwiches, Burgers, Sodas, Fries",
       "foodCategory": "",
-      "pickUpLocation": "234 nashville blvd",
+      "pickUpLocation": "1124 McGavock St, Nashville, TN 37203",
       "eventType": "Birthday",
       "date": "2019-03-25",
       "time": "12:00pm",
       "foodImageUrl": "https://static.businessinsider.com/image/5432ecc8ecad046666d2a561-750.jpg",
       "recipientId": "45678",
-      "isClaimed": true
+      "isClaimed": true,
+      "lat": 36.155830,
+      "long":  -86.786474
     },
     "donation4": {
       "uid": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
-      "foodDescription": "Mac and cheese, mashed potatoes and pork",
+      "foodDescription": "Mac and Cheese, Mashed Potatoes and Pork",
       "foodCategory": "",
-      "pickUpLocation": "345 nashville rd",
+      "pickUpLocation": "111 10th Ave S, Nashville, TN 37203",
       "eventType": "Family dinner",
       "date": "2019-03-09",
       "time": "7:00pm",
       "foodImageUrl": "https://cdn.vox-cdn.com/thumbor/TbVM3yu4EpicfZj4BScPrDcYfns=/0x0:689x535/1200x900/filters:focal(290x213:400x323)/cdn.vox-cdn.com/uploads/chorus_image/image/60176283/12540800_479151908938901_5258071742037933855_n.0.1529954333.jpg",
       "recipientId": "23456",
-      "isClaimed": true
+      "isClaimed": true,
+      "lat": 36.156837,
+      "long":-86.783875
     },
     "donation5": {
       "uid": "12345",
-      "foodDescription": "Green, beans, potatoes, tomatoes, you name it!!",
+      "foodDescription": "Green, Beans, Potatoes, Tomatoes",
       "foodCategory": "",
-      "pickUpLocation": "456 nashville circle",
+      "pickUpLocation": "2800 Opryland Dr, Nashville, TN 37214",
       "eventType": "Thanksgiving dinner",
       "date": "2020-01-03",
       "time": "6:30pm",
       "foodImageUrl": "http://static1.squarespace.com/static/5a45133832601e14c4a7d06e/5a4e9921005559236df8e2b8/5a4e9929005559236df8f0f9/1515100457734/photo.jpg?format=original",
       "recipientId": "",
-      "isClaimed": false
+      "isClaimed": false,
+      "lat": 36.211709,
+      "long": -86.694252
     },
     "donation6": {
       "uid": "g3MKS3dszHhrCE6FYE4XM4a3QdE2",
-      "foodDescription": "chinese food, indian cuisine and some thai foods",
+      "foodDescription": "Chinese food, Indian cuisine and Thai foods",
       "foodCategory": "",
-      "pickUpLocation": "567 nashville drive",
+      "pickUpLocation": "898 Idlewild Dr, Madison, TN 37115",
       "eventType": "Xmas party",
       "date": "2019-08-09",
       "time": "11:00am",
       "foodImageUrl": "https://o.aolcdn.com/images/dims3/GLOB/crop/1409x704+0+794/resize/630x315!/format/jpg/quality/85/http%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2F53030bd59e29d5824f09e988fa737453%2F204111097%2F525981134.jpg",
       "recipientId": "",
-      "isClaimed": false
+      "isClaimed": false,
+      "lat": 36.251117,
+      "long": -86.701267
+    },"donation7": {
+      "uid": "12345",
+      "foodDescription": "Noodles, Soups and Broccolli Beef",
+      "foodCategory": "",
+      "pickUpLocation": "256 Emmitt Ave, Madison, TN 37115",
+      "eventType": "Thanksgiving dinner",
+      "date": "2020-01-03",
+      "time": "6:30pm",
+      "foodImageUrl": "https://www.diet.com/recipes/recipe_img/beef-and-broccoli-soup.jpg",
+      "recipientId": "",
+      "isClaimed": false,
+      "lat": 36.251064,
+      "long": -86.712951
+    },
+    "donation8": {
+      "uid": "12345",
+      "foodDescription": "Pepperoni and Cheese Pizza",
+      "foodCategory": "",
+      "pickUpLocation": "8317 Luree Ln, Hermitage, TN 37076",
+      "eventType": "Thanksgiving dinner",
+      "date": "2020-01-03",
+      "time": "6:30pm",
+      "foodImageUrl": "http://i.imgur.com/WMBCHI7.jpg",
+      "recipientId": "",
+      "isClaimed": false,
+      "lat": 36.202409,
+      "long": -86.615584
     }
   }
 }
