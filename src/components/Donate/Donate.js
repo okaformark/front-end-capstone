@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
+import moment from 'moment';
 import FileUploader from 'react-firebase-file-uploader';
 import {
   FormFeedback,
@@ -32,6 +33,7 @@ const defaultDonation = {
   isClaimed: false,
   lat: '',
   long: '',
+  timePosted: moment(),
 };
 
 class Donate extends React.Component {
@@ -91,6 +93,7 @@ class Donate extends React.Component {
 
   foodImageUrlChange = e => this.formFieldStringState('foodImageUrl', e);
 
+
   formSubmit = (e) => {
     e.preventDefault();
     const saveDonation = { ...this.state.newDonation };
@@ -107,7 +110,7 @@ class Donate extends React.Component {
       <div className="card-donate">
       <div className="Donate">
         <h1>Donate</h1>
-        <Form onSubmit={this.formSubmit}>
+        <Form onSubmit={this.formSubmit} >
           <FormGroup>
             <Label for="foodDescription">Food Description</Label>
             <Input
