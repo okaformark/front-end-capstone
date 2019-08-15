@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import moment from 'moment';
 import { Link, withRouter } from 'react-router-dom';
 import {
   Card,
@@ -104,14 +105,13 @@ class Donations extends React.Component {
     return <button className="btn btn-info button"><span>View</span></button>;
   }
 
-
   render() {
     const { donation } = this.props;
     const editLink = `/edit/${donation.id}`;
     const selectedLink = `/donation/${donation.id}`;
     return (
       <div className="Donations col-lg 4 col-md-4 col-sm-12 col-xs-12">
-        <Card>
+        <Card className="card">
           <CardBody>
             <CardTitle className="event">{donation.eventType}</CardTitle>
             <CardSubtitle>{donation.pickUpLocation}</CardSubtitle>
@@ -125,9 +125,9 @@ class Donations extends React.Component {
             <Link to={editLink} >{this.editButton()}</Link>
             <Link to={selectedLink} >{this.viewButton()}</Link>
             {this.claimButton()}
-            <CardText>
-            <small className="text-muted"></small>
-          </CardText>
+            <footer>
+            <small className="text-muted">{moment(donation.timePosted).fromNow()}</small>
+          </footer>
           </CardBody>
         </Card>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>

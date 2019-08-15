@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import './MyNavbar.scss';
+// import image from './image';
 
 class MyNavbar extends React.Component {
   static propTypes = {
@@ -59,7 +60,7 @@ class MyNavbar extends React.Component {
     return (
       <div className="MyNavbar">
         <Navbar color="dark" dark expand="md" >
-          <NavbarBrand className="title" href="/">FoodsGiving</NavbarBrand>
+          <NavbarBrand className="title" href="/">FoodsGiving <img src="./image/istockphoto_822365658_612x612_dCa_1.ico" alt=""/></NavbarBrand>
           <NavbarToggler onClick={this.toggle.bind(this)} />
           <Collapse isOpen={this.state.isOpen} navbar>
             {buildNavbar()}

@@ -12,7 +12,6 @@ class Home extends React.Component {
     donations: [],
     donationFilter: 'all',
     searchDonations: [],
-    // time: new Date(),
     userLocation: { lat: 13, long: 12 },
   }
 
@@ -24,16 +23,6 @@ class Home extends React.Component {
       .catch(err => console.error('could not get donations', err));
   }
 
-  // currentTime() {
-  //   this.setState({
-  //     time: new Date(),
-  //   });
-  //   const interval = setInterval(() => this.currentTime(), 1000);
-  //   const timeResult = interval - this.state.time;
-  //   console.error(timeResult);
-  // }
-
-
   getUserPosition = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const lat = position.coords.latitude;
@@ -41,7 +30,7 @@ class Home extends React.Component {
       this.setState({
         userLocation: { lat, long },
       });
-      // console.error(this.state.userLocation);
+      console.error(this.state.userLocation);
     });
   }
 
@@ -96,6 +85,7 @@ class Home extends React.Component {
         />
     ));
     return (
+      <div className="home-image">
       <div className="Home">
         <h1>HOME</h1>
         <Search searchDonationsFunc={this.searchDonationsFunc.bind(this)} />
@@ -109,6 +99,7 @@ class Home extends React.Component {
           {makeDonationsCard}
           </div>
         </div>
+      </div>
       </div>
     );
   }
