@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Teko:600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Teko:600|Pacifico&display=swap');
 html, body {
   margin: 0;
   padding: 0;
@@ -14,4 +14,7 @@ html, body {
   background-position: center center ; 
   background-size: cover;
   background-attachment: fixed;
+}
+.quote{
+  font-family: 'Pacifico', cursive;
 }

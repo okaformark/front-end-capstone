@@ -38,7 +38,7 @@ class MyDonations extends React.Component {
     ));
     return (
       <div className="MyDonations col">
-        <h1>My Donations</h1>
+        <h1 className="quote text-white animated bounceInRight delay-0.5s"><span>Thank you for helping curb food wastage in America!</span></h1>
         <div className="container">
           <div className="row">
               {makeMyDonationsCard}

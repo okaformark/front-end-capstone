@@ -105,12 +105,13 @@ class Donations extends React.Component {
     return <button className="btn btn-info button"><span>View</span></button>;
   }
 
+
   render() {
     const { donation } = this.props;
     const editLink = `/edit/${donation.id}`;
     const selectedLink = `/donation/${donation.id}`;
     return (
-      <div className="Donations col-lg 4 col-md-4 col-sm-12 col-xs-12">
+      <div className="Donations col-lg 4 col-md-4 col-sm-12 col-xs-12 animated bounceInLeft delay-0.5s">
         <Card className="card">
           <CardBody>
             <CardTitle className="event">{donation.eventType}</CardTitle>
@@ -126,7 +127,7 @@ class Donations extends React.Component {
             <Link to={selectedLink} >{this.viewButton()}</Link>
             {this.claimButton()}
             <footer>
-            <small className="text-muted">{moment(donation.timePosted).fromNow()}</small>
+            <small className="text-muted float-right mt-2">posted {moment(donation.timePosted).fromNow()}</small>
           </footer>
           </CardBody>
         </Card>

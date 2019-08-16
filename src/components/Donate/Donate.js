@@ -21,6 +21,7 @@ import './Donate.scss';
 
 fbConnection();
 
+
 const defaultDonation = {
   foodDescription: '',
   pickUpLocation: '',
@@ -61,15 +62,13 @@ class Donate extends React.Component {
   }
 
   // getGeocode = () => {
-  //   const lat = {};
-  //   const long = {};
-  //   Geocode.fromAddress('Eiffel Tower').then(
-  //     response => ({
-  //       lat: response.results[0].geometry.location.lat,
-  //       long: response.results[0].geometry.location.long,
-  //     }),
-  //   );
-  // }
+  //   const { newDonation } = this.state;
+  //   Geocode.fromAddress(newDonation.pickUpLocation)
+  //     .then((response) => {
+  //       const { lat, lng } = response.results[0].geometry.location;
+  //       console.error('fffff', lat, lng);
+  //     });
+  // };
 
 
   formFieldStringState = (name, e) => {
@@ -95,6 +94,7 @@ class Donate extends React.Component {
 
 
   formSubmit = (e) => {
+    // this.getGeocode();
     e.preventDefault();
     const saveDonation = { ...this.state.newDonation };
     saveDonation.uid = firebase.auth().currentUser.uid;
@@ -107,9 +107,9 @@ class Donate extends React.Component {
     const { newDonation } = this.state;
     return (
       <div className="bg-image">
-      <div className="card-donate">
+      <h1 className="quote text-white animated bounceInDown delay-0.1s"><span>No one has ever become poor by giving ~ Anne Frank</span></h1>
+      <div className="card-donate animated bounceInUp delay-0.5s">
       <div className="Donate">
-        <h1>Donate</h1>
         <Form onSubmit={this.formSubmit} >
           <FormGroup>
             <Label for="foodDescription">Food Description</Label>
