@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button, ButtonGroup } from 'reactstrap';
 import 'firebase/auth';
+// import Geocode from 'react-geocode';
 import donationsData from '../../helpers/data/donationsData';
 import Donations from '../Donations/Donations';
 import Search from '../Search/Search';
 import './Home.scss';
 
+// Geocode.setApiKey('AIzaSyCoCxKZDcxk-hjjmsqya-A5A5JwGfJPXk8');
 
 class Home extends React.Component {
   state = {
@@ -23,16 +25,16 @@ class Home extends React.Component {
       .catch(err => console.error('could not get donations', err));
   }
 
-  getUserPosition = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const lat = position.coords.latitude;
-      const long = position.coords.longitude;
-      this.setState({
-        userLocation: { lat, long },
-      });
-      console.error(this.state.userLocation);
-    });
-  }
+  // getUserPosition = () => {
+  //   navigator.geolocation.getCurrentPosition((position) => {
+  //     const lat = position.coords.latitude;
+  //     const long = position.coords.longitude;
+  //     this.setState({
+  //       userLocation: { lat, long },
+  //     });
+  //     console.error(this.state.userLocation);
+  //   });
+  // }
 
   searchDonationsFunc = (query) => {
     const { donations } = this.state;
@@ -52,7 +54,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.getDonations();
-    this.getUserPosition();
+    // this.getUserPosition();
   }
 
 
@@ -73,6 +75,15 @@ class Home extends React.Component {
     }
   }
 
+  // getGeocode = () => {
+  //   const { donations } = this.state;
+  //   Geocode.fromAddress('Eiffel Tower')
+  //     .then((response) => {
+  //       const { lat, lng } = response.results[0].geometry.location;
+  //       console.error(response, lat, lng);
+  //     });
+  // };
+
   render() {
     const donations = this.filteredDonations();
     const makeDonationsCard = donations.map(donation => (
@@ -86,10 +97,11 @@ class Home extends React.Component {
     ));
     return (
       <div className="home-image">
+        {/* {this.getGeocode()} */}
       <div className="Home">
-        <h1>HOME</h1>
+        <h1 className="quote animated rubberBand"><span>40% of food in America is wasted annually.Donate today</span></h1>
         <Search searchDonationsFunc={this.searchDonationsFunc.bind(this)} />
-        <ButtonGroup className="filterButton">
+        <ButtonGroup className="filterButton animated bounce delay-0.5s">
         <Button id="all" onClick={this.filterDonations}>All</Button>
         <Button id="claimed" onClick={this.filterDonations}>Claimed</Button>
         <Button id="unclaimed" onClick={this.filterDonations}>Unclaimed</Button>
