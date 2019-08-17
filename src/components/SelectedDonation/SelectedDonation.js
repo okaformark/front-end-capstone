@@ -37,7 +37,6 @@ class SelectedDonation extends React.Component {
     const editLink = `/edit/${this.props.match.params.id}`;
     return (
        <div className="SelectedDonation col">
-        <h1>Selected Donation</h1>
         <div className="container col-6">
         <Donations
           className=""
