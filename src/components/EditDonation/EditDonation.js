@@ -95,7 +95,7 @@ class EditDonation extends React.Component {
       <div className="bg-image">
         <div className="card-donate">
           <div className="EditDonation">
-          <h1>Edit Donation</h1>
+          <h1>Edit your Donation</h1>
           <Form onSubmit={this.formSubmit}>
             <FormGroup>
               <Label for="foodDescription">Food Description</Label>
