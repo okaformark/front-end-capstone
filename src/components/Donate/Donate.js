@@ -34,7 +34,7 @@ const defaultDonation = {
   isClaimed: false,
   lat: '',
   long: '',
-  timePosted: moment(),
+  timePosted: moment().fromNow(),
 };
 
 class Donate extends React.Component {
