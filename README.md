@@ -81,7 +81,6 @@ First, the user logs in.
 The user is prompted for authentication by Google.
 
 ![Google Auth](https://raw.githubusercontent.com/okaformark/front-end-capstone/master/src/helpers/screeshots/googleAuth.PNG)
-![User adds movie](https://raw.githubusercontent.com/okaformark/movie-history/master/src/images/addsMovie.PNG)
 
 which takes the user to their home page.
 
