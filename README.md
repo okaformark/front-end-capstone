@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<!-- ## Available Scripts
 
 In the project directory, you can run:
 
@@ -65,4 +65,63 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify -->
+
+# FOODSGIVING
+## Objectives
+Foodsgiving is an app that lets users donate and receive leftover foods from birthday parties, weddings, office luncheons, family dinner etc. 40 million tons of food is wasted in america annually. The idea behind this app stems from a desire to help curb food wastage which is why i decided to pick up this project as my front-end capstone.
+## Description
+This was designed as a single-user view application. The user signs in and the home page displays a list of donations made. Users can make new donations when they click the *DONATE* tab. New donations can be viewed on the *MY DONATIONS* page. Users can also search for food using the search bar and can filter through all donations to search for claimed and unclaimed donations.
+
+First, the user logs in.
+
+### Screenshot
+![Login page](https://raw.githubusercontent.com/okaformark/front-end-capstone/master/src/helpers/screeshots/loginPage.png)
+
+The user is prompted for authentication by Google.
+
+![Google Auth](https://raw.githubusercontent.com/okaformark/front-end-capstone/master/src/helpers/screeshots/googleAuth.PNG)
+![User adds movie](https://raw.githubusercontent.com/okaformark/movie-history/master/src/images/addsMovie.PNG)
+
+which takes the user to their home page.
+
+### Screenshots
+![Home page](https://raw.githubusercontent.com/okaformark/front-end-capstone/master/src/helpers/screeshots/homePage.png)
+![Search Bar](https://raw.githubusercontent.com/okaformark/front-end-capstone/master/src/helpers/screeshots/searchBar.png)
+
+There, users can view donations. On display is also a search bar, filter buttons and the navigation bar.
+Clicking on the claimed button filters through the donations and displays all claimed donations.
+
+![Claimed View](https://raw.githubusercontent.com/okaformark/front-end-capstone/master/src/helpers/screeshots/claimedView.png)
+
+likewise, clicking on the unclaimed button displays all the donations yet to be claimed.
+
+![Unclaimed view](https://raw.githubusercontent.com/okaformark/front-end-capstone/master/src/helpers/screeshots/unclaimedView.png)
+
+
+On the donate tab, users can make their donations,
+
+### Screenshot
+![Donate](https://raw.githubusercontent.com/okaformark/front-end-capstone/master/src/helpers/screeshots/donatePage.png)
+
+after which the new donation pops up on the *My Donations* page.
+
+ ### Screenshots
+ ![My Donations](https://raw.githubusercontent.com/okaformark/front-end-capstone/master/src/helpers/screeshots/myDonationsPage.png)
+
+## Technologies Used
+- React, Reactstrap SCSS, and JavaScript
+- CRUD Functionality
+- Firebase
+
+## Installation Instructions
+- Clone this repository.
+- At the root of the project run ```$ npm install```
+
+## How to Run
+- In the terminal, type ```$ npm start``` to run the webpage. 
+- To make a production build of this project, type ```$ npm run build```. This will create a folder called ```build``` with all of the minified codes you need.
+- Link to Firebase [Here](https://front-end-capstone-e5ec4.firebaseapp.com/)
+
+## Author 
+Mark Okafor
